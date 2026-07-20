@@ -41,6 +41,16 @@ Before registering an EKS cluster, ensure:
      destination_arn = "arn:aws:logs:<region>:<exaforce-account-id>:destination:eks-cloudwatch-logs-destination-<project>-<region>"
    }
    ```
+4. **ExaForce agent (exabot-k8s) installed on the cluster** — collects and forwards audit logs to ExaForce. The `roleArn`, `queueUrl`, and `configBucketId` values are provided in the ExaForce platform after the log source is registered.
+   ```bash
+   helm repo add exaforce https://exaforce.github.io/helm-charts
+   helm repo update
+
+   helm install exabot-k8s exaforce/exabot-k8s \
+     --set exabotK8s.serviceAccount.roleArn="<iam-role-arn>" \
+     --set exabotK8s.env.queueUrl="<sqs-queue-url>" \
+     --set exabotK8s.env.configBucketId="<config-bucket-id>"
+   ```
 
 ## Usage
 
