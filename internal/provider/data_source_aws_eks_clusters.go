@@ -33,6 +33,7 @@ var eksClusterAttrTypes = map[string]attr.Type{
 	"exabot_role_arn": types.StringType,
 	"exabot_sqs_url":  types.StringType,
 	"bucket_id":       types.StringType,
+	"destination_arn": types.StringType,
 }
 
 func (d *AWSEKSClustersDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -55,6 +56,7 @@ func (d *AWSEKSClustersDataSource) Schema(_ context.Context, _ datasource.Schema
 						"exabot_role_arn": schema.StringAttribute{Computed: true, Description: "IAM role ARN for the ExaForce agent (exabot-k8s)."},
 						"exabot_sqs_url":  schema.StringAttribute{Computed: true, Description: "SQS queue URL for the ExaForce agent (exabot-k8s)."},
 						"bucket_id":       schema.StringAttribute{Computed: true, Description: "S3 config bucket ID for the ExaForce agent (exabot-k8s)."},
+						"destination_arn": schema.StringAttribute{Computed: true, Description: "CloudWatch Logs destination ARN for the subscription filter."},
 					},
 				},
 			},
@@ -91,6 +93,7 @@ func (d *AWSEKSClustersDataSource) Read(ctx context.Context, _ datasource.ReadRe
 			"exabot_role_arn": types.StringValue(c.ExabotRoleArn),
 			"exabot_sqs_url":  types.StringValue(c.ExabotSqsURL),
 			"bucket_id":       types.StringValue(c.BucketID),
+			"destination_arn": types.StringValue(c.DestinationArn),
 		})
 		resp.Diagnostics.Append(diags...)
 		if resp.Diagnostics.HasError() {

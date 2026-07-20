@@ -1,0 +1,331 @@
+{
+  "version": 4,
+  "terraform_version": "1.13.5",
+  "serial": 5,
+  "lineage": "c5c0d6d3-d29e-4291-18c5-9a571ce9f762",
+  "outputs": {
+    "discovered_clusters": {
+      "value": [
+        "guardanthealth-eks",
+        "exaforce-acme-corp-eks",
+        "demo-eks",
+        "exaforce-demo-eks",
+        "townlegal-eks",
+        "aurasell-eks",
+        "felixpago-eks",
+        "exaforce-eks",
+        "cognichip-eks",
+        "functionhealth-eks",
+        "uniphore-eks",
+        "invisible-ai-eks",
+        "mfgsolicitors-eks",
+        "aa2-eks",
+        "bbp-sg-eks",
+        "cfs-eks",
+        "accton-cs-eks",
+        "playground-eks",
+        "gruposalinas-eks",
+        "sunrun-eks",
+        "shv-eks",
+        "openhouse-eks",
+        "mayfield-eks",
+        "halozyme-eks",
+        "replit-eks",
+        "garnerhealth-eks",
+        "saas-prod-eks",
+        "enphase-eks",
+        "asteralabs-eks",
+        "kv-eks",
+        "ninefin-eks",
+        "forcepoint-eks",
+        "lyte-eks",
+        "ctc01-eks",
+        "fuze-eks",
+        "lottiefiles-eks",
+        "poettech-eks",
+        "saas-dev-eks",
+        "onextech-eks",
+        "glean-eks",
+        "aa-eks",
+        "latio-eks",
+        "froresystems-eks"
+      ],
+      "type": [
+        "tuple",
+        [
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string",
+          "string"
+        ]
+      ]
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "exaforce_aws_eks_clusters",
+      "name": "all",
+      "provider": "provider[\"registry.terraform.io/exaforce/logsource\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "clusters": [
+              {
+                "arn": "arn:aws:eks:us-west-2:586794475228:cluster/guardanthealth-eks",
+                "name": "guardanthealth-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:730335427248:cluster/exaforce-acme-corp-eks",
+                "name": "exaforce-acme-corp-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-2:934477340168:cluster/demo-eks",
+                "name": "demo-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:913524906762:cluster/exaforce-demo-eks",
+                "name": "exaforce-demo-eks"
+              },
+              {
+                "arn": "arn:aws:eks:eu-west-2:109389323492:cluster/townlegal-eks",
+                "name": "townlegal-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:885740665304:cluster/aurasell-eks",
+                "name": "aurasell-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-2:901816337594:cluster/felixpago-eks",
+                "name": "felixpago-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:119473394764:cluster/exaforce-eks",
+                "name": "exaforce-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:167781471664:cluster/cognichip-eks",
+                "name": "cognichip-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-2:063299844220:cluster/functionhealth-eks",
+                "name": "functionhealth-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:827566276736:cluster/uniphore-eks",
+                "name": "uniphore-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:850995571584:cluster/invisible-ai-eks",
+                "name": "invisible-ai-eks"
+              },
+              {
+                "arn": "arn:aws:eks:eu-west-2:143982428454:cluster/mfgsolicitors-eks",
+                "name": "mfgsolicitors-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:126593893438:cluster/aa2-eks",
+                "name": "aa2-eks"
+              },
+              {
+                "arn": "arn:aws:eks:ap-southeast-1:950702969007:cluster/bbp-sg-eks",
+                "name": "bbp-sg-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:381491967902:cluster/cfs-eks",
+                "name": "cfs-eks"
+              },
+              {
+                "arn": "arn:aws:eks:ap-northeast-1:177603749589:cluster/accton-cs-eks",
+                "name": "accton-cs-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:976193264502:cluster/playground-eks",
+                "name": "playground-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:973918476134:cluster/gruposalinas-eks",
+                "name": "gruposalinas-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:021558411549:cluster/sunrun-eks",
+                "name": "sunrun-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:332568577876:cluster/shv-eks",
+                "name": "shv-eks"
+              },
+              {
+                "arn": "arn:aws:eks:ap-northeast-1:363661057649:cluster/openhouse-eks",
+                "name": "openhouse-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:301301199902:cluster/mayfield-eks",
+                "name": "mayfield-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:498202685299:cluster/halozyme-eks",
+                "name": "halozyme-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:697169065832:cluster/replit-eks",
+                "name": "replit-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:391119427421:cluster/garnerhealth-eks",
+                "name": "garnerhealth-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:471112895246:cluster/saas-prod-eks",
+                "name": "saas-prod-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:124990256960:cluster/enphase-eks",
+                "name": "enphase-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:010419877993:cluster/asteralabs-eks",
+                "name": "asteralabs-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:698135531397:cluster/kv-eks",
+                "name": "kv-eks"
+              },
+              {
+                "arn": "arn:aws:eks:eu-central-1:604175033505:cluster/ninefin-eks",
+                "name": "ninefin-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:659554839653:cluster/forcepoint-eks",
+                "name": "forcepoint-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:116854521569:cluster/lyte-eks",
+                "name": "lyte-eks"
+              },
+              {
+                "arn": "arn:aws:eks:ap-northeast-1:106596066716:cluster/ctc01-eks",
+                "name": "ctc01-eks"
+              },
+              {
+                "arn": "arn:aws:eks:eu-central-1:343218216276:cluster/fuze-eks",
+                "name": "fuze-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:727646473278:cluster/lottiefiles-eks",
+                "name": "lottiefiles-eks"
+              },
+              {
+                "arn": "arn:aws:eks:ap-southeast-1:123763372314:cluster/poettech-eks",
+                "name": "poettech-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:058264247462:cluster/saas-dev-eks",
+                "name": "saas-dev-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-west-2:755749010080:cluster/onextech-eks",
+                "name": "onextech-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:713415773084:cluster/glean-eks",
+                "name": "glean-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:891377206778:cluster/aa-eks",
+                "name": "aa-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-1:889775707681:cluster/latio-eks",
+                "name": "latio-eks"
+              },
+              {
+                "arn": "arn:aws:eks:us-east-2:983971845739:cluster/froresystems-eks",
+                "name": "froresystems-eks"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "exaforce_aws_logsource_eks",
+      "name": "clusters",
+      "provider": "provider[\"registry.terraform.io/exaforce/logsource\"]",
+      "instances": [
+        {
+          "index_key": "demo-eks",
+          "schema_version": 0,
+          "attributes": {
+            "id": "demo-eks",
+            "name": "demo-eks",
+            "spec": {
+              "cluster_name": "demo-eks",
+              "eks_arn": "arn:aws:eks:us-east-2:934477340168:cluster/demo-eks"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        },
+        {
+          "index_key": "exaforce-eks",
+          "schema_version": 0,
+          "attributes": {
+            "id": "eks-119473394764-us-east-1-cluster-exaforce-eks",
+            "name": "eks-119473394764-us-east-1-cluster-exaforce-eks",
+            "spec": {
+              "cluster_name": "exaforce-eks",
+              "eks_arn": "arn:aws:eks:us-east-1:119473394764:cluster/exaforce-eks"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
