@@ -12,18 +12,21 @@ terraform {
       source  = "hashicorp/helm"
       version = "~> 3.0"
     }
+    null = {
+      source  = "hashicorp/null"
+      version = "~> 3.0"
+    }
   }
 }
 
 provider "exaforce" {
   endpoint  = var.exaforce_endpoint
-  project   = var.exaforce_project
+  project   = "default"
   api_token = var.exaforce_api_token
 }
 
-provider "aws" {
-  region = var.aws_region
-}
+# Region is read from AWS_DEFAULT_REGION env var or ~/.aws/config.
+provider "aws" {}
 
 # Helm provider v3: kubernetes config is a nested object (not a block).
 provider "helm" {
