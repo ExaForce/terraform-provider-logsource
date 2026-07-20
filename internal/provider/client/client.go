@@ -242,14 +242,24 @@ func (c *Client) ListLogSources(ctx context.Context) ([]LogSource, error) {
 
 // EKSCluster represents a discovered EKS cluster from CloudScout.
 type EKSCluster struct {
-	Name string `json:"name"`
-	ARN  string `json:"arn"`
+	Name           string `json:"name"`
+	ARN            string `json:"arn"`
+	AccountID      string `json:"account_id"`
+	Region         string `json:"region"`
+	ExabotRoleArn  string `json:"exabot_role_arn"`
+	ExabotSqsURL   string `json:"exabot_sqs_url"`
+	BucketID       string `json:"bucket_id"`
 }
 
 type eksClusterResponse struct {
 	Spec struct {
-		Name string `json:"name"`
-		ARN  string `json:"arn"`
+		Name          string `json:"name"`
+		ARN           string `json:"arn"`
+		AccountID     string `json:"account_id"`
+		Region        string `json:"region"`
+		ExabotRoleArn string `json:"exabot_role_arn"`
+		ExabotSqsURL  string `json:"exabot_sqs_url"`
+		BucketID      string `json:"bucket_id"`
 	} `json:"spec"`
 }
 
@@ -270,7 +280,15 @@ func (c *Client) ListEKSClusters(ctx context.Context) ([]EKSCluster, error) {
 	}
 	clusters := make([]EKSCluster, 0, len(raw))
 	for _, r := range raw {
-		clusters = append(clusters, EKSCluster{Name: r.Spec.Name, ARN: r.Spec.ARN})
+		clusters = append(clusters, EKSCluster{
+				Name:          r.Spec.Name,
+				ARN:           r.Spec.ARN,
+				AccountID:     r.Spec.AccountID,
+				Region:        r.Spec.Region,
+				ExabotRoleArn: r.Spec.ExabotRoleArn,
+				ExabotSqsURL:  r.Spec.ExabotSqsURL,
+				BucketID:      r.Spec.BucketID,
+			})
 	}
 	c.eksClusterCache = clusters
 	return c.eksClusterCache, nil

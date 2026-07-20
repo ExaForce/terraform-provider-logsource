@@ -26,8 +26,13 @@ type AWSEKSClustersDataSourceModel struct {
 }
 
 var eksClusterAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
-	"arn":  types.StringType,
+	"name":            types.StringType,
+	"arn":             types.StringType,
+	"account_id":      types.StringType,
+	"region":          types.StringType,
+	"exabot_role_arn": types.StringType,
+	"exabot_sqs_url":  types.StringType,
+	"bucket_id":       types.StringType,
 }
 
 func (d *AWSEKSClustersDataSource) Metadata(_ context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -43,8 +48,13 @@ func (d *AWSEKSClustersDataSource) Schema(_ context.Context, _ datasource.Schema
 				Description: "EKS clusters discovered by CloudScout.",
 				NestedObject: schema.NestedAttributeObject{
 					Attributes: map[string]schema.Attribute{
-						"name": schema.StringAttribute{Computed: true, Description: "EKS cluster name."},
-						"arn":  schema.StringAttribute{Computed: true, Description: "EKS cluster ARN."},
+						"name":            schema.StringAttribute{Computed: true, Description: "EKS cluster name."},
+						"arn":             schema.StringAttribute{Computed: true, Description: "EKS cluster ARN."},
+						"account_id":      schema.StringAttribute{Computed: true, Description: "AWS account ID."},
+						"region":          schema.StringAttribute{Computed: true, Description: "AWS region."},
+						"exabot_role_arn": schema.StringAttribute{Computed: true, Description: "IAM role ARN for the ExaForce agent (exabot-k8s)."},
+						"exabot_sqs_url":  schema.StringAttribute{Computed: true, Description: "SQS queue URL for the ExaForce agent (exabot-k8s)."},
+						"bucket_id":       schema.StringAttribute{Computed: true, Description: "S3 config bucket ID for the ExaForce agent (exabot-k8s)."},
 					},
 				},
 			},
@@ -74,8 +84,13 @@ func (d *AWSEKSClustersDataSource) Read(ctx context.Context, _ datasource.ReadRe
 	items := make([]attr.Value, 0, len(clusters))
 	for _, c := range clusters {
 		obj, diags := types.ObjectValue(eksClusterAttrTypes, map[string]attr.Value{
-			"name": types.StringValue(c.Name),
-			"arn":  types.StringValue(c.ARN),
+			"name":            types.StringValue(c.Name),
+			"arn":             types.StringValue(c.ARN),
+			"account_id":      types.StringValue(c.AccountID),
+			"region":          types.StringValue(c.Region),
+			"exabot_role_arn": types.StringValue(c.ExabotRoleArn),
+			"exabot_sqs_url":  types.StringValue(c.ExabotSqsURL),
+			"bucket_id":       types.StringValue(c.BucketID),
 		})
 		resp.Diagnostics.Append(diags...)
 		if resp.Diagnostics.HasError() {
