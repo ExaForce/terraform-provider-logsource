@@ -44,6 +44,18 @@ resource "helm_release" "exabot" {
   depends_on = [aws_eks_cluster.this]
 }
 
+# Step 3.5: Wait for the subscription filter to propagate before registering
+# the cluster. AWS takes a few seconds to make a newly created subscription
+# filter visible to external readers.
+# Only define this resource if you manage the subscription filter in this
+# Terraform configuration. If the filter was created outside of Terraform
+# (e.g. via CLI or a separate Terraform apply), remove this resource and
+# the reference to it in step 4's depends_on.
+resource "time_sleep" "after_subscription_filter" {
+  create_duration = "20s"
+  depends_on      = [aws_cloudwatch_log_subscription_filter.exaforce]
+}
+
 # Step 4: Register the EKS cluster as a log source in ExaForce CloudScout.
 resource "exaforce_aws_logsource_eks" "cluster" {
   spec = {
@@ -52,6 +64,6 @@ resource "exaforce_aws_logsource_eks" "cluster" {
 
   depends_on = [
     helm_release.exabot,
-    aws_cloudwatch_log_subscription_filter.exaforce,
+    time_sleep.after_subscription_filter,
   ]
 }
